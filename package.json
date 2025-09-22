@@ -1,0 +1,41 @@
+{
+  "name": "testwright-ui",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shankar-commits/testwright-load.git"
+  },
+  "description": "Sample project for load testing with Playwright and Artillery",
+  "scripts": {
+    "lint:base": "eslint . --ext .ts,.tsx,.js",
+    "lint": "npm run lint:base",
+    "lint:fix": "npm run lint:base -- --fix",
+    "load-test": "npx artillery run -e benchmark-test --output ./artifacts/load-test-report.json ./tests/test.yml"
+  },
+  "keywords": [
+    "playwright",
+    "typescript",
+    "load testing",
+    "artillery"
+  ],
+  "author": "Shankar Velusamy",
+  "license": "MIT",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "dependencies": {
+    "@playwright/test": "1.55.0",
+    "artillery": "2.0.25"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.35.0",
+    "@types/node": "22.15.3",
+    "eslint": "^9.25.1",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-plugin-prettier": "5.2.6",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.42.0"
+  }
+}

@@ -1,0 +1,48 @@
+config:
+  processor: './processor.ts'
+
+  engines:
+    playwright:
+      { launchOptions: { headless: false }, contextOptions: { ignoreHTTPSErrors: true, testIdAttribute: 'data-test' } }
+
+  environments:
+    benchmark-test:
+      target: 'https://www.saucedemo.com/'
+      phases:
+        - duration: 10
+          arrivalRate: 1
+          rampTo: 2
+          maxVusers: 2
+          name: Warm up phase
+        - duration: 10
+          arrivalRate: 2
+          rampTo: 3
+          maxVusers: 3
+          name: Ramp to steady load
+        - duration: 10
+          arrivalRate: 3
+          maxVusers: 3
+          name: Steady load
+
+    # stress-test:
+    #   target: 'url-will-be-loaded-by-framework'
+    #   phases:
+    #     - duration: 5min
+    #       arrivalRate: 1
+    #       rampTo: 20
+    #       maxVusers: 20
+    #       name: Warm up phase
+    #     - duration: 5min
+    #       arrivalRate: 20
+    #       rampTo: 40
+    #       maxVusers: 40
+    #       name: Ramp to steady load
+    #     - duration: 60min
+    #       arrivalRate: 40
+    #       maxVusers: 40
+    #       name: Steady load
+
+scenarios:
+  - engine: playwright
+    name: Checkout Test
+    flowFunction: 'checkoutTest'
