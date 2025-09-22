@@ -1,6 +1,6 @@
-# testwright-ui
+# testwright-load
 
-A hands-on environment for learning and experimenting with Playwright’s automation capabilities.
+Sample project for load testing with Artillery & Playwright.
 
 ## Prerequisites
 
